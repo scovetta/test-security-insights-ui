@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <title>Security Insights: Quick Start</title>
+    <style>
+        body { font-family: 'Segoe UI', 'Helvetica Neue', sans-serif}
+        textarea { font-family: 'Source Code Pro', Inconsolata, 'Consolas', monospace}
+        h6 { margin-top: 15px; font-weight: bold }
+        div.row { margin-top: 10px; }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Security Insights Spec: Quick Start
+        </a>
+    </nav>
+    <div class="container-fluid" style="margin-top: 50px">
+        <main>
+            <form style="width: 1800px;margin:auto">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="row">
+                            <h2>Header Information</h2>
+                        </div>
+                        <div class="row">
+                            <h6>Parent Specification</h6>
+                            <label for="parentSpecification" class="form-label visually-hidden">Parent Specification</label>
+                            <input type="text" class="form-control" placeholder="https://github.com/..." id="parentSpecification" />
+                        </div>
+                        <div class="row">
+                            <h6>Schema Version</h6>
+                            <label for="access" class="form-label visually-hidden">Schema Version</label>
+                            <select class="form-control" id="access" required>
+                                <option value="1.0.0" selected>1.0.0</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <h6>Project URL</h6>
+                            <label for="project_url" class="form-label visually-hidden">Project URL</label>
+                            <input type="url" class="form-control" placeholder="https://github.com/..." id="project_url" />
+                        </div>
+                        <div class="row">
+                            <h6>Project Lifecycle</h6>
+                            <label for="access" class="form-label visually-hidden">Project Lifecycle</label>
+                            <div class="form-group w-100">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="active" id="project_lifecycle_stage" checked />
+                                    <label class="form-check-label" for="project_lifecycle_stage">Active (project is still active)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="project_lifecycle_bugfixes_only" id="project_lifecycle_bugfixes_only" checked />
+                                    <label class="form-check-label" for="project_lifecycle_bugfixes_only">Bug fixes only (no planned feature improvements)</label>
+                                </div>
+                                <div class="row">
+                                    <input type="url" class="form-control" placeholder="Project Roadmap (URL)" id="project_lifecycle_roadmap_url" patern="https?://.*" />
+                                </div>
+                                <div class="row">
+                                    <h6>Core Maintainers</h6>
+                                    <label for="project_lifecycle_core_maintainers" class="visually-hidden">Core Maintainers</label>
+                                    <textarea class="form-control" id="project_lifecycle_core_maintainers" rows="4" placeholder="GitHub username (one per line)" required></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="project_lifecycle_bugfixes_only" id="project_lifecycle_bugfixes_only" checked />
+                                    <label class="form-check-label" for="project_lifecycle_bugfixes_only">Bug fixes only (no planned feature improvements)</label>
+                                </div>
+                                <select class="form-control" id="access" required>
+                                    <option value="">--Choose--</option>
+                                    <option value="Private/Microsoft" selected>Private/Microsoft</option>
+                                    <option value="Public" selected>Public</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h6>Contribution Policies</h6>
+                            <label for="contribution_policies" class="form-label visually-hidden">Contribution Policies</label>
+                            <div class="form-group w-100">
+                                <input type="url" class="form-control" placeholder="Contribution Policy (URL)" id="contribution_policy_url" patern="https?://.*" />
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="accepts_pull_requests" id="accepts_pull_requests" checked />
+                                    <label class="form-check-label" for="accepts_pull_requests">Accepts Pull Requests</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="accepts_automated_pull_requests" id="accepts_automated_pull_requests" checked />
+                                    <label class="form-check-label" for="accepts_automated_pull_requests">Accepts Automated Pull Requests</label>
+                                </div>
+                                <div class="row">
+                                    <div>Allowed Automated Tools/Bots</div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="Tool/Bot Name" id="contribution_policy_tool_allowed_name" />
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="Path (default: /)" id="contribution_policy_tool_allowed_path" />
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="Comments" id="contribution_policy_tool_allowed_comment" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div>Disallowed Automated Tools/Bots</div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="Tool/Bot Name" id="contribution_policy_tool_disallowed_name" />
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="Path (default: /)" id="contribution_policy_tool_disallowed_path" />
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="Comments" id="contribution_policy_tool_disallowed_comment" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h6>Security Artifacts</h6>
+                        </div>
+                        <div class="row w-100">
+                            <strong>Threat Model</strong>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="true" id="security_artifacts_threat_model_exists" />
+                                <label class="form-check-label" for="security_artifacts_threat_model_exists">Threat Model Exists?</label>
+                            </div>
+                            <input type="url" class="form-control" placeholder="Threat Model (URL)" id="security_artifacts_threat_model_url" patern="https?://.*" />
+                            <input type="text" class="form-control" placeholder="Threat Model (comments)" id="security_artifacts_threat_model_comments" />
+                        </div>
+
+                        <div class="row">
+                            <strong> Security Testing</strong>
+                            <div class="row">
+                                <div class="col-4">
+                                    <select class="form-control" id="access" required>
+                                        <option value="">--Choose a Method--</option>
+                                        <option value="ad_hoc" selected>Ad Hoc</option>
+                                        <option value="before_release" selected>Before Release</option>
+                                        <option value="ci" selected>Continuous Integration</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="Tool Name" id="security_testing_tool_name" />
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="Rulesets" id="security_testing_rulesets" />
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="Tool Version" id="security_testing_tool_version" />
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="Comments" id="security_testing_comments" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-7 pl-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary float-right">Create Markdown</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+
+
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width:1200px;max-width:1200px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Markdown Text</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="markdown" class="form-control" style="width: 100%;" rows="35"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary copyClipboard">Copy to Clipboard</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+    });
+
+    $(window).on('load', function() {
+        $('#reviewDate').val(new Date().toDateInputValue());
+
+        $('.copyClipboard').on('click', function(e) {
+            $('#markdown').select();
+            const result = document.execCommand('copy');
+            if (!result) {
+                alert('Unable to copy to clipboard. Press Ctrl-C instead.');
+            } else {
+                $("#markdown").blur();
+            }
+        });
+
+        $('#packageURLs').on('keyup', function() {
+            $('#packageURLs')[0].setCustomValidity('');
+            $('#packageURLs')[0].reportValidity();
+        });
+
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+
+            var t = '';
+            t += 'header:\n';
+            t += '  schema-version: ' + $('#schema_version').val() + '\n';
+            t += '  parent-security-yaml: ' + $('#parent_security_yaml').val() + '\n';
+            t += 'contribution-policy\n';
+            t += '  accepts-pull-requests: ' + !!$('#accepts_pull_requests') + '\n';
+            t += '  accepts-automated-pull-requests: ' + !!$('#accepts_automated_pull_requests') + '\n';
+            alert(t);
+            var abortSubmission = false;
+
+            if (abortSubmission) return;
+
+            $('#markdown').val(t);
+            $('.modal').modal();
+        });
+    });
+    </script>
+  </body>
+</html>
+
